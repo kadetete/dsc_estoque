@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -29,8 +30,7 @@ public class SecurityConfigurations {
     // Disabilita CSRF (cross site request forgery)
     http.csrf(Customizer.withDefaults());
 
-    // Habilita CORS
-    http.cors(Customizer.withDefaults());
+    
 
     // Não serão criadas ou utilizadas sessões pelo spring security
     http.sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
@@ -40,6 +40,8 @@ public class SecurityConfigurations {
 
     return http.build();
     */
+    // Habilita CORS
+    http.cors(Customizer.withDefaults());
     return http.csrf().disable()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and().authorizeHttpRequests()
