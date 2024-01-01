@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Login</h2>
+    <p *ngIf="loginInvalid">Login ou senha inválidos. Verifique os campos e tente novamente.</p>
+
+    <table class="forms">
+        <tr>
+            <td><label htmlFor="usuario">Usuario:</label></td>
+            <td><input pInputText styleClass="p-inputtext-sm" type="text" id="usuario" [(ngModel)]="usuario"></td>
+        </tr>
+        <tr>
+            <td><label htmlFor="senha">Senha:</label></td>
+            <td><p-password styleClass="p-inputtext-sm" id="senha" [(ngModel)]="senha" [toggleMask]="true" [feedback]="false"></p-password></td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <p-button label="Logar" styleClass="p-button-text" (click)="fazerLogin()"></p-button>
+            </td>
+        </tr>
+    </table>
+</div>
