@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { FabricantesComponent } from './fabricantes/fabricantes.component';
+import { FornecedoresComponent } from './fornecedores/fornecedores.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FabricantesComponent } from './fabricantes/fabricantes.component';
     LoginComponent,
     HomeComponent,
     CategoriasComponent,
-    FabricantesComponent
+    FabricantesComponent,
+    FornecedoresComponent
   ],
   imports: [
     BrowserModule,

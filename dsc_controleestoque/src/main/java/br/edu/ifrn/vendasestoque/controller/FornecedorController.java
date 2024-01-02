@@ -65,6 +65,7 @@ public class FornecedorController {
                 fornecedor.getId()).get();
 
         fornecedorLocal.setNome(fornecedor.getNome());
+        fornecedorLocal.setEndereco(fornecedor.getEndereco());
 
         return ResponseEntity.ok(fornecedorLocal);
     }

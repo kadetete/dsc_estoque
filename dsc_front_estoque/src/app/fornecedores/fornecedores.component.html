@@ -1,0 +1,135 @@
+<div class="cadastro" *ngIf="!editando">
+    <h2>Cadastrar fornecedor</h2>
+    <table>
+        <tr>
+            <td>
+                <label for="nome">Nome</label>
+            </td>
+            <td>
+                <input pInputText type="text" id="nome" name="nome" [(ngModel)]="fornecedor.nome"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="rua">Rua</label>
+            </td>
+            <td>
+                <input pInputText type="text" id="rua" name="rua" [(ngModel)]="fornecedor.endereco.rua"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="numero">Número</label>
+            </td>
+            <td>
+                <input pInputText type="text" id="numero" name="numero" [(ngModel)]="fornecedor.endereco.numero"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="bairro">Bairro</label>
+            </td>
+            <td>
+                <input pInputText type="text" id="bairro" name="bairro" [(ngModel)]="fornecedor.endereco.bairro"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="cep">CEP</label>
+            </td>
+            <td>
+                <input pInputText type="text" id="cep" name="cep" [(ngModel)]="fornecedor.endereco.cep"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p-button label="Enviar" (click)="cadastrarDados()"></p-button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="editando">
+    <h2>Editar fabricante</h2>
+    <table>
+        <tr>
+            <td>
+                <label for="nome">Nome</label>
+            </td>
+            <td>
+                <input pInputText type="text" id="nome" name="nome" [(ngModel)]="fornecedor.nome"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="rua">Rua</label>
+            </td>
+            <td>
+                <input pInputText type="text" id="rua" name="rua" [(ngModel)]="fornecedor.endereco.rua"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="numero">Número</label>
+            </td>
+            <td>
+                <input pInputText type="text" id="numero" name="numero" [(ngModel)]="fornecedor.endereco.numero"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="bairro">Bairro</label>
+            </td>
+            <td>
+                <input pInputText type="text" id="bairro" name="bairro" [(ngModel)]="fornecedor.endereco.bairro"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="cep">CEP</label>
+            </td>
+            <td>
+                <input pInputText type="text" id="cep" name="cep" [(ngModel)]="fornecedor.endereco.cep"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p-button label="Enviar" (click)="atualizarDados()"></p-button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<hr>
+
+<div class="lista">
+    <p-table [value]="fornecedores" [rows]="10" [paginator]="true" [showCurrentPageReport]="false" [rowsPerPageOptions]="[10, 20, 50]" dataKey="id" [(selection)]="fornecedorSelecionada" selectionMode="single">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
+                <th pSortableColumn="nome">Nome <p-sortIcon field="nome"></p-sortIcon></th>
+                <th pSortableColumn="rua">Rua <p-sortIcon field="rua"></p-sortIcon></th>
+                <th pSortableColumn="numero">Numero <p-sortIcon field="numero"></p-sortIcon></th>
+                <th pSortableColumn="bairro">Bairro <p-sortIcon field="bairro"></p-sortIcon></th>
+                <th pSortableColumn="cep">CEP <p-sortIcon field="cep"></p-sortIcon></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-dadofornecedor>
+            <tr [pSelectableRow]="fornecedores">
+                <td> {{ dadofornecedor.id }} </td>
+                <td> {{ dadofornecedor.nome }} </td>
+                <td> {{ dadofornecedor.endereco.rua }} </td>
+                <td> {{ dadofornecedor.endereco.numero }} </td>
+                <td> {{ dadofornecedor.endereco.bairro }} </td>
+                <td> {{ dadofornecedor.endereco.cep }} </td>
+                <td>
+                    <p-button (click)="editarDados(dadofornecedor.id)" label="Editar" [text]="true"></p-button>
+                </td>
+                <td>
+                    <p-button (click)="deletarDados(dadofornecedor.id)" label="Excluir" severity="danger"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
