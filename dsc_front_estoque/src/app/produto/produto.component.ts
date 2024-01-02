@@ -10,15 +10,14 @@ export class ProdutoComponent implements OnInit {
   produto = {
     nome: '',
     descricao: '',
-    quantidade_estoque: 0,
+    quantidadeEstoque: 0,
     preco: 0.00,
     categoria: {
       id: 0
     },
     fabricante: {
       id: 0
-    },
-    ativo: 0
+    }
   }
   id = 0;
   produtos: any[] = []
@@ -58,15 +57,14 @@ export class ProdutoComponent implements OnInit {
       this.produto = {
         nome: '',
         descricao: '',
-        quantidade_estoque: 0,
+        quantidadeEstoque: 0,
         preco: 0.00,
         categoria: {
           id: 0
         },
         fabricante: {
           id: 0
-        },
-        ativo: 0
+        }
       }
     });
   }

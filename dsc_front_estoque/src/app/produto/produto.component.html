@@ -30,7 +30,7 @@
                 <label for="quantidade">Quantidade</label>
             </td>
             <td>
-                <input pInputText type="number" id="quantidade" name="quantidade" [(ngModel)]="produto.quantidade_estoque"/>
+                <input pInputText type="number" id="quantidade" name="quantidade" [(ngModel)]="produto.quantidadeEstoque"/>
             </td>
         </tr>
         <tr>
@@ -47,14 +47,6 @@
             </td>
             <td>
                 <p-dropdown [(ngModel)]="produto.categoria" [options]="categorias" optionLabel="nome" placeholder="Selecione uma categoria"></p-dropdown>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="ativo">Ativo?</label>
-            </td>
-            <td>
-                <p-inputSwitch [(ngModel)]="produto.ativo"></p-inputSwitch>
             </td>
         </tr>
         <tr>

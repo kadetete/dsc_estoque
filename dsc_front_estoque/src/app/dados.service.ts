@@ -39,6 +39,11 @@ export class DadosService {
   // CRUD de produtos
 
   cadastrarProduto(produto: any): Observable<any> {
+    if (produto.ativo) {
+      produto.ativo = 1;
+    } else {
+      produto.ativo = 0;
+    }
     return this.http.post(`${this.baseUrl}/produtos`, produto, { headers: this.headers });
   }
 
