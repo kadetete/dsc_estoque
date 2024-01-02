@@ -1,0 +1,12 @@
+.logout {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

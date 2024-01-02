@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+  constructor(private loginService: LoginService) {}
+
+  logOut(): void {
+    this.loginService.logout();
+    window.location.reload();
+  }
 
 }
