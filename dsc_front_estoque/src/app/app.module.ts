@@ -7,17 +7,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
 import { TabViewModule } from 'primeng/tabview';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableModule } from 'primeng/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { CategoriasComponent } from './categorias/categorias.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    CategoriasComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { HomeComponent } from './home/home.component';
     InputTextModule,
     TabViewModule,
     BrowserAnimationsModule,
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
