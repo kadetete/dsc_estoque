@@ -1,0 +1,63 @@
+<div class="cadastro" *ngIf="!editando">
+    <h2>Cadastrar fabricante</h2>
+    <table>
+        <tr>
+            <td>
+                <label for="nome">Nome</label>
+            </td>
+            <td>
+                <input pInputText type="text" id="nome" name="nome" [(ngModel)]="fabricante.nome"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p-button label="Enviar" (click)="cadastrarDados()"></p-button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="editando">
+    <h2>Editar fabricante</h2>
+    <table>
+        <tr>
+            <td>
+                <label for="nome"> Nome</label>
+            </td>
+            <td>
+                <input pInputText type="text" id="nome" name="nome" [(ngModel)]="fabricante.nome"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p-button label="Enviar" (click)="atualizarDados()"></p-button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<hr>
+
+<div class="lista">
+    <p-table [value]="fabricantes" [rows]="10" [paginator]="true" [showCurrentPageReport]="false" [rowsPerPageOptions]="[10, 20, 50]" dataKey="id" [(selection)]="fabricanteSelecionada" selectionMode="single">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
+                <th pSortableColumn="nome">Nome <p-sortIcon field="nome"></p-sortIcon></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-dadofabricante>
+            <tr [pSelectableRow]="fabricantes">
+                <td> {{ dadofabricante.id }} </td>
+                <td> {{ dadofabricante.nome }} </td>
+                <td>
+                    <p-button (click)="editarDados(dadofabricante.id)" label="Editar" [text]="true"></p-button>
+                </td>
+                <td>
+                    <p-button (click)="deletarDados(dadofabricante.id)" label="Excluir" severity="danger"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

@@ -19,9 +19,6 @@ export class CategoriasComponent implements OnInit {
 
   ngOnInit(): void {
     this.onListar();
-    setTimeout(() => {
-    console.log(this.categorias);
-  }, 1000);
   }
 
   onListar(): void {

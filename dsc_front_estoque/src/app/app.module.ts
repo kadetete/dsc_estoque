@@ -14,13 +14,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { CategoriasComponent } from './categorias/categorias.component';
+import { FabricantesComponent } from './fabricantes/fabricantes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    CategoriasComponent
+    CategoriasComponent,
+    FabricantesComponent
   ],
   imports: [
     BrowserModule,
