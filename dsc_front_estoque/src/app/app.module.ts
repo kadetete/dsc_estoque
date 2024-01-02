@@ -8,6 +8,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TabViewModule } from 'primeng/tabview';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,7 @@ import { CategoriasComponent } from './categorias/categorias.component';
 import { FabricantesComponent } from './fabricantes/fabricantes.component';
 import { FornecedoresComponent } from './fornecedores/fornecedores.component';
 import { ClientesComponent } from './clientes/clientes.component';
+import { ProdutoComponent } from './produto/produto.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { ClientesComponent } from './clientes/clientes.component';
     CategoriasComponent,
     FabricantesComponent,
     FornecedoresComponent,
-    ClientesComponent
+    ClientesComponent,
+    ProdutoComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,8 @@ import { ClientesComponent } from './clientes/clientes.component';
     TabViewModule,
     BrowserAnimationsModule,
     TableModule,
+    DropdownModule,
+    InputSwitchModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
