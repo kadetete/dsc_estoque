@@ -1,0 +1,75 @@
+<div class="cadastro" *ngIf="!editando">
+    <h2>Cadastrar entrada-produto</h2>
+    <table>
+        <tr>
+            <td>
+                <label for="quantidade">Quantidade</label>
+            </td>
+            <td>
+                <input pInputText type="number" id="quantidade" name="quantidade" [(ngModel)]="entrada.quantidade"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="preco">Preço</label>
+            </td>
+            <td>
+                <input pInputText type="number" id="preco" name="preco" [(ngModel)]="entrada.preco"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="produto">Produto</label>
+            </td>
+            <td>
+                <p-dropdown id="produto" [options]="produtos" optionLabel="nome" placeholder="Selecione um produto" [(ngModel)]="entrada.produto"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="fornecedor">Fornecedor</label>
+            </td>
+            <td>
+                <p-dropdown id="fornecedor" [options]="fornecedores" optionLabel="nome" placeholder="Selecione um fornecedor" [(ngModel)]="entrada.fornecedor"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="data_hora">Data e hora</label>
+            </td>
+            <td>
+                <p-calendar dateFormat="yy-mm-dd" [(ngModel)]="entrada.data_hora"></p-calendar>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p-button label="Enviar" (click)="cadastrarDados()"></p-button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<hr>
+
+<div class="lista">
+    <p-table [value]="entradas" [rows]="10" [paginator]="true" [showCurrentPageReport]="false" [rowsPerPageOptions]="[10, 20, 50]" dataKey="id" [(selection)]="entradaSelecionada" selectionMode="single">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
+                <th pSortableColumn="quantidade">Quantidade <p-sortIcon field="quantidade"></p-sortIcon></th>
+                <th pSortableColumn="preco">Preço <p-sortIcon field="preco"></p-sortIcon></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-dadoentrada>
+            <tr [pSelectableRow]="entradas">
+                <td> {{ dadoentrada.id }} </td>
+                <td> {{ dadoentrada.quantidade }} </td>
+                <td> {{ dadoentrada.preco }} </td>
+                <td>
+                    <p-button (click)="deletarDados(dadoentrada.id)" label="Excluir" severity="danger"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
