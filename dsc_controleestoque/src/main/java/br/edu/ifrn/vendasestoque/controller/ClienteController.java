@@ -65,6 +65,7 @@ public class ClienteController {
                 cliente.getId()).get();
 
         clienteLocal.setNome(cliente.getNome());
+        clienteLocal.setEndereco(cliente.getEndereco());
 
         return ResponseEntity.ok(clienteLocal);
     }
