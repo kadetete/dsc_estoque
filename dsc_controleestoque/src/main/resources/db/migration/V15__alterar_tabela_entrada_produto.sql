@@ -1,0 +1,1 @@
+ALTER TABLE entrada_produto ADD COLUMN data_hora datetime not null;
