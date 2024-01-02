@@ -1,12 +1,12 @@
 <div class="cadastro" *ngIf="!editando">
-    <h2>Cadastrar fornecedor</h2>
+    <h2>Cadastrar cliente</h2>
     <table>
         <tr>
             <td>
                 <label for="nome">Nome</label>
             </td>
             <td>
-                <input pInputText type="text" id="nome" name="nome" [(ngModel)]="fornecedor.nome"/>
+                <input pInputText type="text" id="nome" name="nome" [(ngModel)]="cliente.nome"/>
             </td>
         </tr>
         <tr>
@@ -14,7 +14,7 @@
                 <label for="rua">Rua</label>
             </td>
             <td>
-                <input pInputText type="text" id="rua" name="rua" [(ngModel)]="fornecedor.endereco.rua"/>
+                <input pInputText type="text" id="rua" name="rua" [(ngModel)]="cliente.endereco.rua"/>
             </td>
         </tr>
         <tr>
@@ -22,7 +22,7 @@
                 <label for="numero">Número</label>
             </td>
             <td>
-                <input pInputText type="text" id="numero" name="numero" [(ngModel)]="fornecedor.endereco.numero"/>
+                <input pInputText type="text" id="numero" name="numero" [(ngModel)]="cliente.endereco.numero"/>
             </td>
         </tr>
         <tr>
@@ -30,7 +30,7 @@
                 <label for="bairro">Bairro</label>
             </td>
             <td>
-                <input pInputText type="text" id="bairro" name="bairro" [(ngModel)]="fornecedor.endereco.bairro"/>
+                <input pInputText type="text" id="bairro" name="bairro" [(ngModel)]="cliente.endereco.bairro"/>
             </td>
         </tr>
         <tr>
@@ -38,7 +38,7 @@
                 <label for="cep">CEP</label>
             </td>
             <td>
-                <input pInputText type="text" id="cep" name="cep" [(ngModel)]="fornecedor.endereco.cep"/>
+                <input pInputText type="text" id="cep" name="cep" [(ngModel)]="cliente.endereco.cep"/>
             </td>
         </tr>
         <tr>
@@ -49,14 +49,14 @@
     </table>
 </div>
 <div *ngIf="editando">
-    <h2>Editar fornecedor</h2>
+    <h2>Editar cliente</h2>
     <table>
         <tr>
             <td>
                 <label for="nome">Nome</label>
             </td>
             <td>
-                <input pInputText type="text" id="nome" name="nome" [(ngModel)]="fornecedor.nome"/>
+                <input pInputText type="text" id="nome" name="nome" [(ngModel)]="cliente.nome"/>
             </td>
         </tr>
         <tr>
@@ -64,7 +64,7 @@
                 <label for="rua">Rua</label>
             </td>
             <td>
-                <input pInputText type="text" id="rua" name="rua" [(ngModel)]="fornecedor.endereco.rua"/>
+                <input pInputText type="text" id="rua" name="rua" [(ngModel)]="cliente.endereco.rua"/>
             </td>
         </tr>
         <tr>
@@ -72,7 +72,7 @@
                 <label for="numero">Número</label>
             </td>
             <td>
-                <input pInputText type="text" id="numero" name="numero" [(ngModel)]="fornecedor.endereco.numero"/>
+                <input pInputText type="text" id="numero" name="numero" [(ngModel)]="cliente.endereco.numero"/>
             </td>
         </tr>
         <tr>
@@ -80,7 +80,7 @@
                 <label for="bairro">Bairro</label>
             </td>
             <td>
-                <input pInputText type="text" id="bairro" name="bairro" [(ngModel)]="fornecedor.endereco.bairro"/>
+                <input pInputText type="text" id="bairro" name="bairro" [(ngModel)]="cliente.endereco.bairro"/>
             </td>
         </tr>
         <tr>
@@ -88,7 +88,7 @@
                 <label for="cep">CEP</label>
             </td>
             <td>
-                <input pInputText type="text" id="cep" name="cep" [(ngModel)]="fornecedor.endereco.cep"/>
+                <input pInputText type="text" id="cep" name="cep" [(ngModel)]="cliente.endereco.cep"/>
             </td>
         </tr>
         <tr>
@@ -102,7 +102,7 @@
 <hr>
 
 <div class="lista">
-    <p-table [value]="fornecedores" [rows]="10" [paginator]="true" [showCurrentPageReport]="false" [rowsPerPageOptions]="[10, 20, 50]" dataKey="id" [(selection)]="fornecedorSelecionada" selectionMode="single">
+    <p-table [value]="clientes" [rows]="10" [paginator]="true" [showCurrentPageReport]="false" [rowsPerPageOptions]="[10, 20, 50]" dataKey="id" [(selection)]="clienteSelecionada" selectionMode="single">
         <ng-template pTemplate="header">
             <tr>
                 <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
@@ -115,19 +115,19 @@
                 <th></th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-dadofornecedor>
-            <tr [pSelectableRow]="fornecedores">
-                <td> {{ dadofornecedor.id }} </td>
-                <td> {{ dadofornecedor.nome }} </td>
-                <td> {{ dadofornecedor.endereco.rua }} </td>
-                <td> {{ dadofornecedor.endereco.numero }} </td>
-                <td> {{ dadofornecedor.endereco.bairro }} </td>
-                <td> {{ dadofornecedor.endereco.cep }} </td>
+        <ng-template pTemplate="body" let-dadocliente>
+            <tr [pSelectableRow]="clientes">
+                <td> {{ dadocliente.id }} </td>
+                <td> {{ dadocliente.nome }} </td>
+                <td> {{ dadocliente.endereco.rua }} </td>
+                <td> {{ dadocliente.endereco.numero }} </td>
+                <td> {{ dadocliente.endereco.bairro }} </td>
+                <td> {{ dadocliente.endereco.cep }} </td>
                 <td>
-                    <p-button (click)="editarDados(dadofornecedor.id)" label="Editar" [text]="true"></p-button>
+                    <p-button (click)="editarDados(dadocliente.id)" label="Editar" [text]="true"></p-button>
                 </td>
                 <td>
-                    <p-button (click)="deletarDados(dadofornecedor.id)" label="Excluir" severity="danger"></p-button>
+                    <p-button (click)="deletarDados(dadocliente.id)" label="Excluir" severity="danger"></p-button>
                 </td>
             </tr>
         </ng-template>

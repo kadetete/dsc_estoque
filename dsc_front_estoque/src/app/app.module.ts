@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { FabricantesComponent } from './fabricantes/fabricantes.component';
 import { FornecedoresComponent } from './fornecedores/fornecedores.component';
+import { ClientesComponent } from './clientes/clientes.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FornecedoresComponent } from './fornecedores/fornecedores.component';
     HomeComponent,
     CategoriasComponent,
     FabricantesComponent,
-    FornecedoresComponent
+    FornecedoresComponent,
+    ClientesComponent
   ],
   imports: [
     BrowserModule,
