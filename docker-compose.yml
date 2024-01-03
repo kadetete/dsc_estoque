@@ -1,0 +1,55 @@
+version: '3.7'
+
+services:
+
+  rabbitmq:
+    image: rabbit:3.12-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - mynet
+    tty: true
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./dsc_front_estoque
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - backend
+    networks:
+      - mynet
+    restart: unless-stopped
+
+  db:
+    image: mysql:latest
+    container_name: db
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_DATABASE=dsc_estoque
+    restart: unless-stopped
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - mynet
+
+  backend:
+    build:
+      context: ./dsc_controleestoque
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - rabbitmq
+      - db
+    networks:
+      - mynet
+    restart: unless-stopped
+    command: bash -c "java -jar app.jar"
+
+      
