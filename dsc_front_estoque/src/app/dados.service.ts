@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class DadosService {
 
   constructor(private http: HttpClient, private cookieService: CookieService) { }
-  baseUrl = 'http://localhost:8080';
+  baseUrl = 'http://backend:8080';
   headers = { 'Authorization': `Bearer ${this.cookieService.get('authToken')}`,
               'Content-Type': 'application/json',
               'Accept': 'application/json'};

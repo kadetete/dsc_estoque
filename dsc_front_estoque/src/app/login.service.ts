@@ -10,7 +10,7 @@ export class LoginService {
   autenticado = false;
 
   constructor(private http: HttpClient, private cookieService: CookieService) { }
-  apiUrl = 'http://localhost:8080/login'
+  apiUrl = 'http://backend:8080/login'
 
   login(user: string, password: string): Observable<any> {
     return this.http.post(`${this.apiUrl}`, {login: user, senha: password})
