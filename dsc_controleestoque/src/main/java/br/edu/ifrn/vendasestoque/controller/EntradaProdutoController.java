@@ -50,7 +50,7 @@ public class EntradaProdutoController {
 
   @GetMapping
   public ResponseEntity<Page<EntradaProduto>> listar(
-      @PageableDefault(size = 30, sort = { "nome" }) Pageable paginacao) {
+      @PageableDefault(size = 30, sort = { "id" }) Pageable paginacao) {
     var entradaProdutos = repository.findAll(paginacao);
     return ResponseEntity.ok(entradaProdutos);
   }

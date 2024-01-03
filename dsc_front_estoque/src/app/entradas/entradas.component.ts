@@ -8,7 +8,7 @@ import { DadosService } from '../dados.service';
 })
 export class EntradasComponent implements OnInit {
   entrada = {
-    data_hora: new Date(),
+    dataHora: new Date(),
     quantidade: 0,
     preco: 0.00,
     produto: {
@@ -54,7 +54,7 @@ export class EntradasComponent implements OnInit {
     this.dadosService.cadastrarEntradaProduto(this.entrada).subscribe(() => {
       this.onListar();
       this.entrada = {
-        data_hora: new Date(),
+        dataHora: new Date(),
         quantidade: 0,
         preco: 0.00,
         produto: {

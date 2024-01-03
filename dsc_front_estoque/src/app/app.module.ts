@@ -23,6 +23,7 @@ import { FornecedoresComponent } from './fornecedores/fornecedores.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { EntradasComponent } from './entradas/entradas.component';
+import { VendaComponent } from './venda/venda.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EntradasComponent } from './entradas/entradas.component';
     FornecedoresComponent,
     ClientesComponent,
     ProdutoComponent,
-    EntradasComponent
+    EntradasComponent,
+    VendaComponent
   ],
   imports: [
     BrowserModule,

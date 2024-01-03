@@ -1,0 +1,34 @@
+<div class="cadastro">
+    <h2>Cadastrar venda</h2>
+    <table>
+        <tr>
+            <td>
+                <label for="dataHora">Data/Hora</label>
+            </td>
+            <td>
+                <p-calendar [(ngModel)]="venda.dataHora" [showTime]="true" id="dataHora"></p-calendar>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="totalVenda">Valor total de vendas</label>
+            </td>
+            <td>
+                <input pInputText type="number" [(ngModel)]="venda.totalVenda">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="idCliente">Cliente</label>
+            </td>
+            <td>
+                <p-dropdown [options]="clientes" [(ngModel)]="venda.cliente" optionLabel="nome" placeholder="Selecione um cliente"></p-dropdown>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p-button label="Enviar" (click)="cadastrarDados()"></p-button>
+            </td>
+        </tr>
+    </table>
+</div>
